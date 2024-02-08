@@ -6,7 +6,7 @@ public class Main {
     static Scanner scannerNum = new Scanner(System.in).useLocale(Locale.US);
     static GestorAlumnos gc = new GestorAlumnos();
     private static void menu() {
-        System.out.println("Menu de Opciones");
+        System.out.println("Menu de Opciones ");
         System.out.println("====================");
         System.out.println("1. Agregar Alumnos");
         System.out.println("2. Mostrar Alumnos");
