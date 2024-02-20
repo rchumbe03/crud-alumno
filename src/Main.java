@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner scannerStr = new Scanner(System.in);
     static Scanner scannerNum = new Scanner(System.in).useLocale(Locale.US);
-    static GestorAlumnos gc = new GestorAlumnos();
+    static GestorAlumnos ga = new GestorAlumnos();
     private static void menu() {
         System.out.println("Menu de Opciones ");
         System.out.println("====================");
@@ -29,7 +29,7 @@ public class Main {
                     agregarAlumno();
                     break;
                 case 2:
-                    //mostrarAlumno();
+                    mostrarAlumno();
                     break;
                 case 3:
                     //actualizarAlumno();
@@ -80,7 +80,7 @@ public class Main {
         asistencia = scannerNum.nextDouble();
         System.out.print("Nota del examen final : ");
         examenfinal = scannerNum.nextDouble();
-        gc.agregarAlumno(new Alumno( nombre, apellido, telefono, email, nota1, nota2, nota3, asistencia, examenfinal));
+        ga.agregarAlumno(new Alumno(nombre, apellido, telefono, email, nota1, nota2, nota3, asistencia, examenfinal));
         System.out.println("\nAlumno agregado con exito.......!");
         pausa();
     }
@@ -88,5 +88,19 @@ public class Main {
         System.out.println();
         System.out.println("Presione ENTER para continuar...");
         scannerStr.nextLine();
+    }
+    private static void cabeceraListarAlumnos() {
+        // Salida de datos con variable local
+        System.out.println("\n\n          Lista de Alumnos");
+        System.out.println("============================================================");
+        System.out.println("ID      Nombre      Apellido    Telefono    Correo      Nota 1      Nota 2      Nota 3 ");
+        System.out.println("============================================================");
+    }
+    private static void mostrarAlumno() {
+        cabeceraListarAlumnos();
+        for (Alumno a : ga.listarAlumnos()) {
+            System.out.println(a.toStr());
+        }
+        pausa();
     }
 }

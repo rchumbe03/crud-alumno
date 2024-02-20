@@ -11,6 +11,7 @@ public class Alumno {
     private double examenfinal;
     private double notafinal;
     private String notaCualitativa;
+    private boolean borrado;
 
     // -constructor- //
     public Alumno(String nombre, String apellido, String telefono, String email, double nota1, double nota2, double nota3, double asistencia, double examenfinal) {
@@ -125,9 +126,13 @@ public class Alumno {
         this.notaCualitativa = notaCualitativa;
     }
 
+    public boolean isBorrado() {
+        return borrado;
+    }
+
     public String toStr() {
         // Asumiendo anchos de campo fijos, ajusta los números según sea necesario
-        return String.format("%-4d %-20s %-15s %-6d %-10s", id, nombre, apellido, telefono, email, nota1, nota2, nota3, asistencia, examenfinal);
+        return String.format("%-6d %-8s %-10s %-10s %-10s %-10f %-10f %-10f %10f %10f",id, nombre, apellido, telefono, email, nota1, nota2, nota3, asistencia, examenfinal);
     }
 
     private void calcularnotaCualitativaFinal(Alumno alumno) {
